@@ -7,8 +7,6 @@
 @import "navbar.css";
 
 @media screen and (max-width: 600px) {
-	.leftcolumn, .rightcolumn {
-		width: 100%;
-		padding: 0;
-	}
+	width: 100%;
+	padding: 0;
 }
