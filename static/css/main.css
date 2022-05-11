@@ -1,0 +1,14 @@
+@import "links.css";
+@import "navigation.css";
+@import "body.css";
+@import "button.css";
+@import "card.css";
+@import "quotes.css";
+@import "navbar.css";
+
+@media screen and (max-width: 600px) {
+	.leftcolumn, .rightcolumn {
+		width: 100%;
+		padding: 0;
+	}
+}
