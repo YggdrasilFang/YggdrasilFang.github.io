@@ -1,5 +1,6 @@
 .container {
 	
+	padding: 8px 16px;
 	display: grid;
 	float: left;
 	width: 25%;
