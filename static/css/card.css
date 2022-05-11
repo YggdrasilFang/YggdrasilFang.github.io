@@ -12,7 +12,10 @@
   grid-row: repeat(5,[1fr]);
   
 }
- .card_header{
+.card_header{
+	
+}
+ .card_img{
      width:100%;
      max-width:600px;
  }
