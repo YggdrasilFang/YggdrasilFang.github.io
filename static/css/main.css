@@ -1,5 +1,4 @@
 @import "links.css";
-@import "navigation.css";
 @import "body.css";
 @import "button.css";
 @import "card.css";
@@ -7,5 +6,8 @@
 @import "navbar.css";
 
 @media screen and (max-width: 600px) {
-	width: 100%;
+	.container{
+		width: 100%;
+		float: center;
+	}
 }
