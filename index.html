@@ -1,53 +1,89 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE >
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="static/css/main.css">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Manipulating the DOM</title>
+  <!-- Load Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="js/app.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<ul>
-	<li><a class="active" href="/index.html">Blog Home</a></li>
-	<li><a href="#contact">Contact</a></li>
-	<li><a href="#about">About</a></li>
-</ul>
-<div class="header">
-	<h2><strong>My Projects</strong></h2>
-</div>
-<div class ="page">
-	<div class ="container">
-	<div class="card">
-		<div class = "card_header">
-			<a href="/post1.html">
-				<img src = "/static/images/project1.jpg" class = "card_img" alt="Blog Project Code">
-				<figure><figcaption>Fig.1 - Blog HTML Code, Fishkill, NY</figcaption></figure>
-			</a>
+  <!-- HTML Follows BEM naming conventions 
+  IDs are only used for sections to connect menu achors to sections -->
+  <header class="page__header">
+    <nav class="navbar__menu">
+      <!-- Navigation starts as empty UL that will be populated with JS -->
+      <ul id="navbar__list"></ul>
+  <a href="javascript:void(0);" class="hamburger" onclick="MobileMenu()">
+  <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+  </header>
+  <main>
+    <header class="main__hero">
+      <h1>How to make crepes</h1>
+    </header>
+    <!-- Each Section has an ID (used for the anchor) and 
+    a data attribute that will populate the li node.
+    Adding more sections will automatically populate nav.
+    The first section is set to active class by default -->
+    <section id="section1" data-nav="How to make crepes">
+      <div class="landing__container">
+        <h2>How to make crepes:</h2>
+        <p>Crepes are one of my favorite dishes to make for breakfast. They're quick, easy to make, and come in many types ranging from sweet to savory. You can top them with fruit, nutella, cheese, and even gravy if you want.</p>
+		<p>This recipe yields 4 crepes. You can change the ratio of ingredients to make more or less crepes.</p>
+      </div>
+    </section>
+    <section id="section2" data-nav="Ingredients">
+      <div class="landing__container">
+        <h2>Ingredients:</h2>
+        <ul>
+			<p>1 c. all-purpose flower</p>
+			<p>2 large eggs</p>
+			<p>1 tbsp. granulated sugar</p>
+			<p>1/4 tsp. kosher salt</p>
+			<p>1 1/2 c. whole milk</p>
+			<p>1 tbsp. butter</p>
+			<p>Fresh fruit, for serving</p>
+			<p>Powdered sugar, for serving</p>
+		</ul>
+        </div>
+    </section>
+    <section id="section3" data-nav="Directions">
+      <div class="landing__container">
+        <h2>Directions:</h2>
+        <p>In a large mixing bowl whisk the flour, sugar and salt until combined. Then create a well with flour and add the eggs. Gradually pour in milk, whisking to combine after each addition. Let batter stand at room temperature until slightly bubbly on top, 15 to 20 minutes.</p>
+        <p>In a small skillet over medium heat, melt butter. About 1/4 cup at a time, drop batter evenly onto pan, swirling it to evenly coat.</p>
+		<p>Cook 2 minutes, then flip and cook 1 minute more. Repeat with remaining batter. </p>
+		<p>Serve crêpes warm with fresh fruit and powdered sugar.</p>
 		</div>
-		<div class = "card_body">
-			<h2><em>Project no. 1: Blog</em></h2>
+    </section>
+	<section id="section4" data-nav="Tips and tricks">
+      <div class="landing__container">
+        <h2>Tips and tricks:</h2>
+		<strong>How do I make sure my crepe batter doesn't have any lumps?</strong>
+        <p>Because crepe batter is so thin, you want to be sure it’s lump-free. We find that most of the time whisking the wet into the dry ingredients by hand works just fine, but if you find you have lumps, you can always whizz it up in a blender or a food processor.</p>
+        <strong>Can I make these crepes with gluten-free flour? What about whole wheat?</strong>
+        <p>Absolutely. You can substitute any one-for-one gluten-free flour mix for the all-purpose flour in this recipe. You can also substitute in all whole-wheat flour if you like (and it will give your crepes a deliciously nutty flavor!), but they will also be slightly thicker than they would be with all-purpose flour. For best results, we recommend trying half whole-wheat and half all-purpose flour at first—that way you get that deliciously nutty flavor while still keeping the thin, delicate texture.</p>
+		<strong>How do I make sweeter crepe batter?</strong>
+        <p>With crepes, we find that most of the sweetness comes from the fillings and toppings, rather than the crepe batter itself. But if you’re making dessert crepes and you want the batter sweeter, feel free to up the sugar in the recipe from 1 to 2 tablespoons.</p>
+		<strong>How do I cook these crepes?</strong>
+        <p>The key to cooking crepes well is using a small pan that’s preheated over medium heat and well-greased with butter. We recommend dropping the batter into the center using a ¼-cup measuring cup, then gently tilting the pan to help the batter spread evenly. After the batter is spread, leave it be until it’s golden brown on the bottom, then slide a spatula around the sides to make sure it’s not sticking before you flip it.</p>
+		<strong>My crepe stuck and fell apart! What do I do?</strong>
+        <p>First, don’t panic! Everyone has had at least one crepe that got stuck, ripped, or otherwise fell apart. Let your crepe finish cooking through, then get it out of the pan as best you can. Once the pan’s empty, scrape out any stuck bits, add more butter and try again. The good news? Even a ripped crepe tastes delicious</p>
+		<strong>What do I fill my crepes with? </strong>
+        <p>The short answer? Anything you want! Fresh strawberries and whipped cream or bananas and chocolate are a few of our favorite combos. Or if savory’s more your thing, try mushrooms and spinach or cheddar and sausage.</p>
+        
 		</div>
-		<div class = "card_buttons">
-			<div class="button">
-				<button>
-					Facebook
-				</button>
-			</div>
-			<div class="button" >
-				<button>
-					Twitter
-				</button>
-			</div>
-			<div class="button" >
-				<button>
-					Linkedin
-				</button>
-			</div>
-		</div>
-	</div>
-</div>
-<footer>
-	<p><u>Author: Andrew Tejedor</u></p>
-	<a href="mailto:tejedor.andrew@gmail.com">tejedor.andrew@gmail.com</a></p>
-</footer>
-	</body>
+    </section>
+  </main>
+  <footer class="page__footer">
+    <p>&copy Udacity</p>
+  </footer>
+
+</body>
 </html>
