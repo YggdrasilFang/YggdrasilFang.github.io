@@ -143,5 +143,5 @@ section:nth-of-type(even) .landing__container {
 
 /* Section Active Styles */
 .active {
-    background-color: pink;
+    background-color: DarkGray;
 }
