@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', MobileMenu, false);
  * 
 */
 
-// build the nav
+// build the navbar using the number and names of sections
 function BuildNav(){
 	const sections = document.querySelectorAll('section');
 	let li;
@@ -58,7 +58,7 @@ function BuildNav(){
 		li.appendChild(a);
          document.getElementById("navbar__list").appendChild(li);
 	}
- document.getElementById("navbar__list").addEventListener("click", function(e){
+	document.getElementById("navbar__list").addEventListener("click", function(e){
 		const href = e.target.getAttribute('href');
         if(href!=null){
 			Scroll(e.target.getAttribute('id'));
@@ -76,24 +76,34 @@ function IsScrolling(){
 			 const boundingBox = landingContainer[i].getBoundingClientRect();
 			 const pos = boundingBox.top;
 			 if(pos<window.innerHeight/2){
-				 SetActiveSection(i+1);
+                 sectionToActivate = i+1
 			 }
 		}
+        if(sectionToActivate!=-1){
+		    SetActiveSection(sectionToActivate);
+        }
 	});
 }
 
-// Set active section
+// Set the class of the corresponding section to active, and set the class name of the other sections to an empty string.
 function SetActiveSection(sectionID){
-  if(!sectionID)
-    return;
-	const activeSection = document.getElementsByClassName("active"); 
-	for(let i = 0;i<activeSection.length;i++){
-		activeSection[i].className = activeSection[i].className.replace("active","");
-	}
-	const sectionToActivate = document.getElementById("section"+sectionID.toString());
-	const linkToActivate = document.getElementById(sectionID.toString());
-	sectionToActivate.className = "active";
-	linkToActivate.className = "active";
+    if(!sectionID)
+        return;
+	const numOfSections = document.querySelectorAll('section').length;
+    let activeList;
+    for(let i = 0;i<numOfSections;i++){
+        if(i+1==sectionID){ 
+          const sectionToActivate = document.getElementById("section"+(i+1).toString());
+	      const linkToActivate = document.getElementById((i+1).toString());
+	      sectionToActivate.className = "active";
+	      linkToActivate.className = "active";
+        }else{
+          const sectionToActivate = document.getElementById("section"+(i+1).toString());
+	      const linkToActivate = document.getElementById((i+1).toString());
+	      sectionToActivate.className = "";
+	      linkToActivate.className = "";
+        }
+    }
 }
 
 // Scroll to anchor ID using scrollTO event
